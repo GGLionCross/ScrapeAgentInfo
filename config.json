@@ -1,0 +1,11 @@
+{
+  "chrome_options": {
+    "user_data_path": "C:/Users/lione/AppData/Local/Google/Chrome/User Data",
+    "profile_path": "Profile 3"
+  },
+  "locations": ["Orange County, CA", "San Bernadino, CA", "Coachella Valley, CA"],
+  "output_csv": true,
+  "timeouts": {
+    "default": 10
+  }
+}
