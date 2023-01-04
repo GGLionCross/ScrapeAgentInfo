@@ -4,8 +4,5 @@
     "profile_path": "Profile 3"
   },
   "locations": ["Orange County, CA", "San Bernadino, CA", "Coachella Valley, CA"],
-  "output_csv": true,
-  "timeouts": {
-    "default": 10
-  }
+  "output_csv": true
 }

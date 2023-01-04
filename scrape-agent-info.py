@@ -1,13 +1,6 @@
 from python_utils import cprint, get_config
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium_utils import Base
-from selenium_utils import JavaScript
-from selenium_utils import Wait
 from classes.Agents import Agent, Agents
 
 def transform_location(location):
@@ -20,21 +13,17 @@ def transform_location(location):
   return loc
 
 def main():
-  cprint("green", "Running ScrapeAgentInfo...")
+  cprint("<g>Running ScrapeAgentInfo...")
   config = get_config()
 
   USER_DATA_PATH = config["chrome_options"]["user_data_path"]
   PROFILE_PATH = config["chrome_options"]["profile_path"]
   LOCATIONS = config["locations"]
   OUTPUT_CSV = config["output_csv"]
-  TIMEOUT_DEFAULT = config["timeouts"]["default"]
   URL_REALTOR_AGENTS = "https://www.realtor.com/realestateagents/"
 
   base = Base(user_data_path=USER_DATA_PATH, profile_path=PROFILE_PATH)
   driver = base.initialize_driver()
-  actions = ActionChains(driver)
-  wait = Wait(driver, TIMEOUT_DEFAULT)
-  js = JavaScript(driver)
 
   def search_location_on_realtor(location):
     driver.get(f"{URL_REALTOR_AGENTS}/{transform_location(location)}")
@@ -60,12 +49,12 @@ def main():
     try:
       page_count = get_page_count()
     except:
-      cprint("cyan", f"{loc} - 0 pages")
+      cprint(f"<c>{loc} - 0 pages")
       continue
 
     # Iterate over pages
     for p in range(1, page_count + 1):
-      cprint("cyan", f"{loc} - Page: {p} / {page_count}")
+      cprint(f"<c>{loc} - Page: {p} / {page_count}")
       agents_on_page = get_agents_on_page()
 
       # Iterate over agents
