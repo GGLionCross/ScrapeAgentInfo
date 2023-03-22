@@ -1,8 +1,114 @@
 {
+  "source": "coldwell",
+  "source_options": [
+    "coldwell",
+    "compass",
+    "kw",
+    "realtor"
+  ],
   "chrome_options": {
     "user_data_path": "C:/Users/lione/AppData/Local/Google/Chrome/User Data",
     "profile_path": "Profile 3"
   },
-  "locations": ["Orange County, CA", "San Bernadino, CA", "Coachella Valley, CA"],
-  "output_csv": true
+  "locations": [
+    "Sacramento County, CA",
+    "Los Angeles County, CA",
+    "San Diego County, CA",
+    "Riverside County, CA",
+    "Orange County, CA",
+    "Contra Costa County, CA",
+    "Alameda County, CA"
+  ],
+  "coldwell_locations": [
+    {
+      "city": "Alameda, CA",
+      "id": 512
+    },
+    {
+      "city": "Los Angeles, CA",
+      "id": 5204
+    },
+    {
+      "city": "Orange , CA",
+      "id": 6558
+    },
+    {
+      "city": "Riverside, CA",
+      "id": 7519
+    },
+    {
+      "city": "Sacramento, CA",
+      "id": 301
+    },
+    {
+      "city": "San Diego, CA",
+      "id": 246
+    }
+  ],
+  "coldwell_locations_default": [
+    {
+      "city": "Alameda, CA",
+      "id": 512
+    },
+    {
+      "city": "Los Angeles, CA",
+      "id": 5204
+    },
+    {
+      "city": "Orange , CA",
+      "id": 6558
+    },
+    {
+      "city": "Riverside, CA",
+      "id": 7519
+    },
+    {
+      "city": "Sacramento, CA",
+      "id": 301
+    },
+    {
+      "city": "San Diego, CA",
+      "id": 246
+    }
+  ],
+  "compass_locations": [
+    "Sacramento County, CA",
+    "Los Angeles County, CA",
+    "San Diego County, CA",
+    "Riverside County, CA",
+    "Orange County, CA",
+    "Contra Costa County, CA",
+    "Alameda County, CA"
+  ],
+  "compass_locations_default": [
+    "Sacramento County, CA",
+    "Los Angeles County, CA",
+    "San Diego County, CA",
+    "Riverside County, CA",
+    "Orange County, CA",
+    "Contra Costa County, CA",
+    "Alameda County, CA"
+  ],
+  "kw_locations": [
+    "San Diego, CA",
+    "Riverside, CA",
+    "Orange County, CA",
+    "Contra Costa County, CA",
+    "Alameda, CA"
+  ],
+  "kw_locations_default": [
+    "Sacramento, CA",
+    "Los Angeles, CA",
+    "San Diego, CA",
+    "Riverside, CA",
+    "Orange County, CA",
+    "Contra Costa County, CA",
+    "Alameda, CA"
+  ],
+  "realtor_locations": [],
+  "realtor_locations_default": [],
+  "output_csv": true,
+  "timeouts": {
+    "default": 5
+  }
 }

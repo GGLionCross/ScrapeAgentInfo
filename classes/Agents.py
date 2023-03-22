@@ -1,30 +1,43 @@
 class Agent:
-  def __init__(self, location, name, brokerage, phone, sold):
-    self.location = location
-    self.name = name
-    self.brokerage = brokerage
-    self.phone = phone
-    self.sold = sold
+  def __init__(self, props):
+    # props = { "name"="John Smith" }
+    for key, value in props.items():
+      setattr(self, key, value)
 
 class Agents:
-  def __init__(self):
+  def __init__(self, columns):
     self.agents = []
+    self.columns = columns
   
   def add_agent(self, agent : Agent):
     self.agents.append(agent)
-  
-  def get_agents_as_string(self, csv=True):
-    if csv:
-      agents = "\"Location\",\"Name\",\"First Name\",\"Last Name\",\"Brokerage\",\"Phone\",\"Sold\"\n"
-    else:
-      agents = "Location\tName\tFirst Name\tLast Name\tBrokerage\tPhone\tSold\n"
-    for a in self.agents:
-      name_list = a.name.split()
-      first = name_list[0]
-      last = name_list[len(name_list) - 1]
-      if csv:
-        agents += f"\"{a.location}\",\"{a.name}\",\"{first}\",\"{last}\",\"{a.brokerage}\",\"{a.phone}\",\"{a.sold}\"\n"
-      else:
-        agents += f"{a.location}\t{a.name}\t{first}\t{last}\t{a.brokerage}\t{a.phone}\t{a.sold}\n"
+
+  def get_agents_as_csv_string(self):
+    agents = ""
+    # ex. "Location","Name","First Name","Last Name","Phone"\n
+    for i in range(0, len(self.columns)):
+      agents += f"\"{self.columns[i]}\""
+      agents += "," if i < len(self.columns) - 1 else "\n"
+    
+    for agent in self.agents:
+      for i in range(0, len(self.columns)):
+        agents += f"\"{getattr(agent, self.columns[i])}\""
+        agents += "," if i < len(self.columns) - 1 else "\n"
+    
     return agents
 
+  def get_agents_as_txt_string(self):
+    agents = ""
+
+    # If csv == False, format as .txt file using tabs
+    # ex. Location\tName\tFirst Name\tLast Name\tPhone\n
+    for i in range(0, len(self.columns)):
+      agents += f"{self.columns[i]}"
+      agents += "\t" if i < len(self.columns) - 1 else "\n"
+    
+    for agent in self.agents:
+      for i in range(0, self.columns):
+        agents += f"{getattr(agent, self.columns[i])}"
+        agents += "\t" if i < len(self.columns) - 1 else "\n"
+    
+    return agents
