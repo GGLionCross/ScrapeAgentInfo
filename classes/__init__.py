@@ -1,5 +1,2 @@
-from .Agents import Agent, Agents
-from .Coldwell import Coldwell
-from .Compass import Compass
-from .KellerWilliams import KellerWilliams
-from .Realtor import Realtor
+from .scraper_classes.common.agents import Agents
+from .Exceptions import RestartScrape

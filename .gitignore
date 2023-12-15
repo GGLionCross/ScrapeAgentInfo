@@ -1,5 +1,5 @@
 # Output files
-agent_files/
+agent_data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

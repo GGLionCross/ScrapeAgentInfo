@@ -13,9 +13,6 @@ IF %1 EQU --help (
   ECHO --------------
   ECHO AVAILABLE ARGS
   ECHO --------------
-  ECHO upgrade-octoprint
-  ECHO activate-env
-  ECHO requirements
-  ECHO setup
+  ECHO run
   ECHO --------------
 )

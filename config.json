@@ -1,6 +1,7 @@
 {
-  "source": "coldwell",
+  "source": "bhhs",
   "source_options": [
+    "bhhs",
     "coldwell",
     "compass",
     "kw",
@@ -17,68 +18,62 @@
     "Riverside County, CA",
     "Orange County, CA",
     "Contra Costa County, CA",
-    "Alameda County, CA"
+    "Alameda County, CA",
+    "Santa Clara County, CA"
+  ],
+  "bhhs_locations": [
+    "Santa Clara, CA, USA"
+  ],
+  "bhhs_locations_default": [
+    "Alameda, CA, USA",
+    "Los Angeles, CA, USA",
+    "Orange County, CA, USA",
+    "Riverside, CA, USA",
+    "Sacramento, CA, USA",
+    "San Diego, CA, USA",
+    "Santa Clara, CA, USA"
   ],
   "coldwell_locations": [
     {
       "city": "Alameda, CA",
-      "id": 512
-    },
-    {
-      "city": "Los Angeles, CA",
-      "id": 5204
-    },
-    {
-      "city": "Orange , CA",
-      "id": 6558
-    },
-    {
-      "city": "Riverside, CA",
-      "id": 7519
-    },
-    {
-      "city": "Sacramento, CA",
-      "id": 301
-    },
-    {
-      "city": "San Diego, CA",
-      "id": 246
+      "id": 512,
+      "last_pulled": "03/22/2022"
     }
   ],
   "coldwell_locations_default": [
     {
       "city": "Alameda, CA",
-      "id": 512
+      "id": 512,
+      "last_pulled": "03/22/2022"
     },
     {
       "city": "Los Angeles, CA",
-      "id": 5204
+      "id": 5204,
+      "last_pulled": "03/24/2022"
     },
     {
-      "city": "Orange , CA",
-      "id": 6558
+      "city": "Orange, CA",
+      "id": 6558,
+      "last_pulled": "03/24/2022"
     },
     {
       "city": "Riverside, CA",
-      "id": 7519
+      "id": 7519,
+      "last_pulled": "03/24/2022"
     },
     {
       "city": "Sacramento, CA",
-      "id": 301
+      "id": 301,
+      "last_pulled": ""
     },
     {
       "city": "San Diego, CA",
-      "id": 246
+      "id": 246,
+      "last_pulled": ""
     }
   ],
   "compass_locations": [
-    "Sacramento County, CA",
-    "Los Angeles County, CA",
-    "San Diego County, CA",
-    "Riverside County, CA",
-    "Orange County, CA",
-    "Contra Costa County, CA",
-    "Alameda County, CA"
+    
   ],
   "compass_locations_default": [
     "Sacramento County, CA",
@@ -107,7 +102,6 @@
   ],
   "realtor_locations": [],
   "realtor_locations_default": [],
-  "output_csv": true,
   "timeouts": {
     "default": 5
   }
