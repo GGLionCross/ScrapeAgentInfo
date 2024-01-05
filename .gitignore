@@ -1,5 +1,11 @@
 # Output files
-agent_data/
+agent_data/*/*
+
+# Scraped urls for continued scraping
+agent_urls/*/*
+
+# Configured cookies for various sites
+cookies/*/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

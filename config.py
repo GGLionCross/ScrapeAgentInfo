@@ -7,18 +7,21 @@ import os
 #     'coldwell',
 #     'compass',
 #     'kw',
-#     'realtor'
+#     'realtor.com'
 # ]
 # source = [
 #     'bhhs'
 # ]
 
-source = 'realtor'
+source = 'realtor.com'
 
 chrome_options = {
     'user_data_path': os.getenv("__CHROME_USER_DATA"),
-    'profile_path': 'Profile 2'
+    'profile_path': 'Default',
+    "chrome_exe_path": os.getenv("__CHROME_V114"),
 }
+
+browsermob_proxy_path = os.getenv("__BROWSERMOB_PROXY_PATH")
 
 locations = {
     'bhhs': [
@@ -33,8 +36,8 @@ locations = {
     'kw': [
         'Santa Clara, CA'
     ],
-    'realtor': [
-        'Santa Clara, CA'
+    'realtor.com': [
+        'Sacramento, CA'
     ]
 }
 
