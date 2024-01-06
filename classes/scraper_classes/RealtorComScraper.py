@@ -25,20 +25,19 @@ class RealtorComScraper:
         self,
         chrome_options: dict,
         cookies: list,
-        browsermob_proxy_path: str,
+        bmp_options: dict,
         locations: list,
         timeout_default: int = 10,
     ):
         self.__b = SeleniumBase(
             chrome_options=chrome_options,
-            cookies=cookies,
-            bmp_options={"browsermob_proxy_path": browsermob_proxy_path},
+            bmp_options=bmp_options,
             timeout_default=timeout_default,
         )
         self.__dr = self.__b.get_driver()
         self.__bmp = self.__b.get_bmp()
-        self.__har = None  # HAR data from browsermob proxy
         self.__loc = locations
+        self.__cookies = cookies
 
     def close(self):
         self.__b.close()
@@ -54,15 +53,15 @@ class RealtorComScraper:
 
     def search_location(self, location):
         base_url = f"{RealtorComScraper.__BASE_URL}/realestateagents"
-        location_url = self.transform_location(location)
-        self.__b.visit_with_delay(f"{base_url}/{location_url}")
+        loc_transformed = self.transform_location(location)
+        loc_url = f"{base_url}/{loc_transformed}"
+        self.__b.set_referer(loc_url)
+        self.__b.visit_with_delay(loc_url)
 
-    def get_agent_count(self):
-        xpath = '//div[contains(@class, "search-result")]/p[1]/span'
-        agent_count = self.__dr.find_element(By.XPATH, xpath)
-        count = filter(str.isdigit, agent_count.get_attribute("textContent"))
-        count = "".join(count)
-        return int(count)
+    def get_agent_count(self, responses: list):
+        # Get HAR data after loading all page requests
+        print(responses)
+        return
 
     def get_page_count(self):
         xpath = '//div[@role="navigation"]/a[position() = last() - 1]'
@@ -96,8 +95,15 @@ class RealtorComScraper:
 
             self.search_location(loc)
 
-            agent_count = self.get_agent_count()
+            # self.__b.add_cookies(self.__cookies)
 
+            self.__bmp.wait_for_response("search?")
+
+            responses = self.__bmp.get_responses("search?")
+
+            agent_count = self.get_agent_count(responses)
+
+            return
             agents = Agents(
                 [
                     RealtorComScraper.__COL_LOCATION,

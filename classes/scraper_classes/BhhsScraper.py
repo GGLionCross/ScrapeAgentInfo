@@ -31,13 +31,13 @@ class BhhsScraper:
     def __init__(
         self,
         chrome_options: dict,
-        browsermob_proxy_path: str,
+        bmp_options: dict,
         locations: list,
         timeout_default: int = 10,
     ):
         self.__b = SeleniumBase(
             chrome_options=chrome_options,
-            bmp_options={"browsermob_proxy_path": browsermob_proxy_path},
+            bmp_options=bmp_options,
             timeout_default=timeout_default,
         )
         self.__dr = self.__b.initialize_driver()

@@ -1,4 +1,4 @@
-from python_utils import cprint, pause
+from python_utils import cprint, pause, print_trace
 from classes.Exceptions import RestartScrape
 from classes.scraper_classes import BhhsScraper
 from classes.scraper_classes import ColdwellScraper
@@ -13,14 +13,14 @@ def get_scraper(source):
     if source == "bhhs":
         return BhhsScraper(
             chrome_options=cfg.chrome_options,
-            browsermob_proxy_path=cfg.browsermob_proxy_path,
+            bmp_options=cfg.bmp_options,
             locations=cfg.locations[source],
             timeout_default=cfg.timeouts["default"],
         )
     elif source == "coldwell":
         return ColdwellScraper(
             chrome_options=cfg.chrome_options,
-            browsermob_proxy_path=cfg.browsermob_proxy_path,
+            bmp_options=cfg.bmp_options,
             locations=cfg.locations[source],
             timeout_default=cfg.timeouts["default"],
         )
@@ -33,7 +33,7 @@ def get_scraper(source):
     elif source == "kw":
         return KellerWilliamsScraper(
             chrome_options=cfg.chrome_options,
-            browsermob_proxy_path=cfg.browsermob_proxy_path,
+            bmp_options=cfg.bmp_options,
             locations=cfg.locations[source],
             timeout_default=cfg.timeouts["default"],
         )
@@ -41,7 +41,7 @@ def get_scraper(source):
         return RealtorComScraper(
             chrome_options=cfg.chrome_options,
             cookies=realtor_com_cookies,
-            browsermob_proxy_path=cfg.browsermob_proxy_path,
+            bmp_options=cfg.bmp_options,
             locations=cfg.locations[source],
             timeout_default=cfg.timeouts["default"],
         )
@@ -59,8 +59,9 @@ def main():
         except RestartScrape:
             scraper.close()
         except Exception as e:
-            cprint(f"<r>{e}")
+            print_trace()
             pause()
+            break  # Temporary for testing
     scraper.close()
     cprint("Finished <g>scrape-agent-info.py<w>.")
 
